@@ -1,3 +1,35 @@
 <html>
+</head>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "RW1HRpw2mxpPmkVyK",
+      });
+   })();
+</script>
+<script>
+function sendMail() {
+var templateParams = {
+  name: 'James',
+  notes: 'Check this out!',
+};
 
-<html>
+emailjs.send('service_ecd80a6', 'template_zgtq5qt', templateParams).then(
+  (response) => {
+    //console.log('SUCCESS!', response.status, response.text);
+          alert("Email sent");
+  },
+  (error) => {
+    console.log('FAILED...', error);
+  },
+);
+
+}
+</script>
+</head>
+<body onload = "sendMail()">
+</body>
+</html>
